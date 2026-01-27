@@ -39,11 +39,11 @@ img {
   h1 {
     font-size: 2.25rem !important;
   }
-  
+
   h2 {
     font-size: 1.875rem !important;
   }
-  
+
   h3 {
     font-size: 1.25rem !important;
   }
@@ -63,14 +63,14 @@ body {
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .border-white\\/5 {
+  [class*="border-white"] {
     border-color: rgba(255, 255, 255, 0.2);
   }
-  
+
   .text-gray-400 {
     color: rgba(255, 255, 255, 0.8);
   }
-  
+
   .text-gray-500 {
     color: rgba(255, 255, 255, 0.7);
   }
