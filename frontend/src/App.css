@@ -1,0 +1,85 @@
+/* Equinio App Styles */
+
+/* Remove default centering */
+.App {
+  min-height: 100vh;
+}
+
+/* Section positioning */
+section {
+  position: relative;
+}
+
+/* Button styles */
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid rgba(255, 85, 0, 0.5);
+  outline-offset: 2px;
+}
+
+/* Link reset */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2.25rem !important;
+  }
+  
+  h2 {
+    font-size: 1.875rem !important;
+  }
+  
+  h3 {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Prevent overflow */
+body {
+  overflow-x: hidden;
+}
+
+/* Smooth scroll polyfill */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .border-white\\/5 {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .text-gray-400 {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .text-gray-500 {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* Print styles */
+@media print {
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
