@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useMemo } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 
-const FloatingParticles = ({ 
+const FloatingParticles = ({
   particleCount = 50,
   minSize = 1,
   maxSize = 3,
@@ -8,42 +8,52 @@ const FloatingParticles = ({
   maxSpeed = 0.8,
   minOpacity = 0.1,
   maxOpacity = 0.4,
-  color = "255, 255, 255" // RGB format
+  color = "255, 255, 255", // RGB format
 }) => {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
   const particlesRef = useRef([]);
 
-  // Responsive particle count based on screen size
-  const getResponsiveCount = () => {
-    if (typeof window === "undefined") return particleCount;
-    const width = window.innerWidth;
-    if (width < 640) return Math.floor(particleCount * 0.4); // Mobile
-    if (width < 1024) return Math.floor(particleCount * 0.7); // Tablet
-    return particleCount; // Desktop
-  };
-
   // Initialize particles
-  const initParticles = (width, height) => {
-    const count = getResponsiveCount();
-    const particles = [];
-    
-    for (let i = 0; i < count; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        size: minSize + Math.random() * (maxSize - minSize),
-        speed: minSpeed + Math.random() * (maxSpeed - minSpeed),
-        opacity: minOpacity + Math.random() * (maxOpacity - minOpacity),
-        // Slight horizontal drift
-        drift: (Math.random() - 0.5) * 0.3,
-        // Phase offset for opacity pulsing
-        phase: Math.random() * Math.PI * 2,
-      });
-    }
-    
-    return particles;
-  };
+  const initParticles = useCallback(
+    (width, height) => {
+      // Responsive particle count based on screen size
+      let count = particleCount;
+      if (typeof window !== "undefined") {
+        const screenWidth = window.innerWidth;
+        if (screenWidth < 640)
+          count = Math.floor(particleCount * 0.4); // Mobile
+        else if (screenWidth < 1024) count = Math.floor(particleCount * 0.7); // Tablet
+      }
+
+      const particles = [];
+
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          size: minSize + Math.random() * (maxSize - minSize),
+          speed: minSpeed + Math.random() * (maxSpeed - minSpeed),
+          opacity: minOpacity + Math.random() * (maxOpacity - minOpacity),
+          // Slight horizontal drift
+          drift: (Math.random() - 0.5) * 0.3,
+          // Phase offset for opacity pulsing
+          phase: Math.random() * Math.PI * 2,
+        });
+      }
+
+      return particles;
+    },
+    [
+      particleCount,
+      minSize,
+      maxSize,
+      minSpeed,
+      maxSpeed,
+      minOpacity,
+      maxOpacity,
+    ],
+  );
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -57,7 +67,7 @@ const FloatingParticles = ({
       height = window.innerHeight;
       canvas.width = width;
       canvas.height = height;
-      
+
       // Reinitialize particles on resize
       particlesRef.current = initParticles(width, height);
     };
@@ -73,7 +83,7 @@ const FloatingParticles = ({
         // Update position - move upward
         particle.y -= particle.speed;
         particle.x += particle.drift;
-        
+
         // Update phase for subtle opacity pulsing
         particle.phase += 0.01;
 
@@ -88,7 +98,8 @@ const FloatingParticles = ({
         if (particle.x > width + 10) particle.x = -10;
 
         // Calculate pulsing opacity
-        const pulsingOpacity = particle.opacity * (0.7 + 0.3 * Math.sin(particle.phase));
+        const pulsingOpacity =
+          particle.opacity * (0.7 + 0.3 * Math.sin(particle.phase));
 
         // Draw particle
         ctx.beginPath();
@@ -108,13 +119,13 @@ const FloatingParticles = ({
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [minSize, maxSize, minSpeed, maxSpeed, minOpacity, maxOpacity, color, particleCount]);
+  }, [initParticles, color]);
 
   return (
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ 
+      style={{
         zIndex: 1,
         opacity: 0.8,
       }}
@@ -123,4 +134,3 @@ const FloatingParticles = ({
 };
 
 export default FloatingParticles;
-
