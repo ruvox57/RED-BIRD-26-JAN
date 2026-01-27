@@ -139,7 +139,7 @@ const HeroSection = () => {
 
       {/* Content Container - Matching Reference Layout */}
       <div
-        className="relative z-10 flex flex-col items-center justify-center w-full"
+        className="relative z-10 flex flex-col items-center justify-center w-full hero-content-container"
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
@@ -154,7 +154,7 @@ const HeroSection = () => {
         >
           {/* Content Box with padding */}
           <div
-            className="flex flex-col items-center justify-center w-full"
+            className="flex flex-col items-center justify-center w-full hero-content-box"
             style={{
               gap: "18px",
               padding: "80px 60px 60px",
@@ -291,7 +291,7 @@ const HeroSection = () => {
                 delay: 1.4,
               },
             }}
-            className="flex items-center gap-3 mt-6"
+            className="flex items-center gap-3 mt-6 hero-trust-badge"
           >
             <div className="flex -space-x-2">
               {[...Array(4)].map((_, i) => (
@@ -328,7 +328,7 @@ const HeroSection = () => {
       {/* Responsive Styles */}
       <style>{`
         @media (max-width: 1199px) and (min-width: 810px) {
-          #home > div:nth-child(3) {
+          #home .hero-content-container {
             padding: 100px 40px 60px !important;
           }
           #home .hero-headline {
@@ -345,47 +345,63 @@ const HeroSection = () => {
           #home .hero-bg {
             background-size: cover !important;
           }
-          #home > div:nth-child(3) {
-            padding: 80px 16px 40px !important;
+          #home .hero-content-container {
+            padding: 100px 24px 60px !important;
           }
-          #home > div:nth-child(3) > div > div {
-            padding: 40px 16px 40px !important;
-            gap: 14px !important;
+          #home .hero-content-box {
+            padding: 40px 20px !important;
+            gap: 16px !important;
+            align-items: center !important;
           }
           #home .hero-headline {
-            font-size: 28px !important;
+            font-size: 32px !important;
             max-width: 100% !important;
-            line-height: 1.25em !important;
+            line-height: 1.2em !important;
+            text-align: center !important;
           }
           #home .hero-subtext {
-            font-size: 14px !important;
+            font-size: 15px !important;
             white-space: normal !important;
-            max-width: 100% !important;
+            max-width: 280px !important;
             text-align: center !important;
+            line-height: 1.5em !important;
           }
           #home .hero-buttons {
             flex-direction: column !important;
             width: 100% !important;
-            gap: 10px !important;
+            max-width: 200px !important;
+            gap: 12px !important;
+            align-items: center !important;
           }
           #home .hero-buttons button {
             width: 100% !important;
             justify-content: center !important;
+            padding: 12px 24px !important;
+          }
+          #home .hero-trust-badge {
+            flex-direction: column !important;
+            gap: 8px !important;
+            align-items: center !important;
+            text-align: center !important;
           }
         }
         @media (max-width: 480px) {
-          #home > div:nth-child(3) {
-            padding: 70px 12px 30px !important;
+          #home .hero-content-container {
+            padding: 90px 20px 50px !important;
           }
-          #home > div:nth-child(3) > div > div {
-            padding: 30px 12px 30px !important;
-            gap: 12px !important;
+          #home .hero-content-box {
+            padding: 30px 16px !important;
+            gap: 14px !important;
           }
           #home .hero-headline {
-            font-size: 24px !important;
+            font-size: 28px !important;
           }
           #home .hero-subtext {
-            font-size: 13px !important;
+            font-size: 14px !important;
+            max-width: 260px !important;
+          }
+          #home .hero-buttons {
+            max-width: 180px !important;
           }
         }
       `}</style>
