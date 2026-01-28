@@ -118,22 +118,29 @@ const FoundationSection = () => {
       `}</style>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section Header with Orange Border on Desktop */}
         <div className="text-center mb-16">
-          <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight"
-            style={{ fontFamily: "'Orbitron', sans-serif" }}
+          <div
+            className="inline-block px-8 py-6 rounded-2xl lg:border-2 lg:border-orange-500/60"
+            style={{
+              background: "transparent",
+            }}
           >
-            <span
-              className="font-bold"
+            <h2
+              className="text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight"
               style={{ fontFamily: "'Orbitron', sans-serif" }}
             >
-              One clear
-            </span>{" "}
-            foundation.
-            <br />
-            Total financial control.
-          </h2>
+              <span
+                className="font-bold"
+                style={{ fontFamily: "'Orbitron', sans-serif" }}
+              >
+                One clear
+              </span>{" "}
+              foundation.
+              <br />
+              Total financial control.
+            </h2>
+          </div>
         </div>
 
         {/* Asymmetric Grid Layout */}
@@ -319,8 +326,8 @@ const FoundationSection = () => {
                   />
                 </svg>
               </div>
-              {/* Built for Fast Adoption - Overlay text */}
-              <div className="absolute bottom-0 left-0 p-6 bg-gradient-to-t from-[#111111] via-[#111111]/80 to-transparent w-full lg:w-1/2">
+              {/* Built for Fast Adoption - Overlay text (Desktop Only) */}
+              <div className="hidden lg:block absolute bottom-0 left-0 p-6 bg-gradient-to-t from-[#111111] via-[#111111]/80 to-transparent w-1/2">
                 <h3
                   className="text-lg font-semibold text-white mb-2"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -336,9 +343,9 @@ const FoundationSection = () => {
                   existing systems.
                 </p>
               </div>
-              {/* Lightning bolt icon with animations */}
+              {/* Lightning bolt icon with animations (Desktop Only) */}
               <div
-                className={`absolute bottom-6 right-6 lg:right-1/4 ${isChartVisible ? "lightning-animated" : ""}`}
+                className={`hidden lg:block absolute bottom-6 right-1/4 ${isChartVisible ? "lightning-animated" : ""}`}
               >
                 <svg width="80" height="120" viewBox="0 0 80 120" fill="none">
                   <defs>
@@ -371,6 +378,68 @@ const FoundationSection = () => {
                     d="M45 0L0 70H30L25 120L80 45H45L45 0Z"
                     fill="url(#boltGradient)"
                     filter="url(#boltGlow)"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            {/* Built for Fast Adoption - Mobile Only Card */}
+            <div className="lg:hidden feature-card animate-on-scroll bg-[#111111] rounded-2xl p-6 border border-white/10 hover:border-orange-500/30 transition-all duration-500 relative overflow-hidden">
+              {/* Lightning bolt positioned to the right, not overlapping text */}
+              <div className="flex items-start gap-4">
+                {/* Text content */}
+                <div className="flex-1 pr-16">
+                  <h3
+                    className="text-lg font-semibold text-white mb-2"
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}
+                  >
+                    Built for Fast Adoption
+                  </h3>
+                  <p
+                    className="text-gray-400 text-sm leading-relaxed"
+                    style={{ fontFamily: "'Urbanist', sans-serif" }}
+                  >
+                    Equinio platforms are designed to be adopted quickly,
+                    integrate cleanly, and deliver value without disrupting
+                    existing systems.
+                  </p>
+                </div>
+              </div>
+              {/* Lightning bolt icon - positioned to the right */}
+              <div
+                className={`absolute right-4 top-1/2 -translate-y-1/2 ${isChartVisible ? "lightning-animated" : ""}`}
+              >
+                <svg width="50" height="75" viewBox="0 0 80 120" fill="none">
+                  <defs>
+                    <linearGradient
+                      id="boltGradientMobile"
+                      x1="40"
+                      y1="0"
+                      x2="40"
+                      y2="120"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stopColor="#FFFFFF" />
+                      <stop offset="1" stopColor="#FF8800" />
+                    </linearGradient>
+                    <filter
+                      id="boltGlowMobile"
+                      x="-50%"
+                      y="-50%"
+                      width="200%"
+                      height="200%"
+                    >
+                      <feGaussianBlur stdDeviation="3" result="blur" />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <path
+                    d="M45 0L0 70H30L25 120L80 45H45L45 0Z"
+                    fill="url(#boltGradientMobile)"
+                    filter="url(#boltGlowMobile)"
                   />
                 </svg>
               </div>
