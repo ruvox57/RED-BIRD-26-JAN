@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import OrangeGlowAnimation from "./OrangeGlowAnimation";
@@ -80,7 +81,7 @@ const EasierSmarterSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#171717] overflow-hidden animate-on-scroll"
+      className="relative bg-transparent overflow-hidden animate-on-scroll"
       style={{ minHeight: "578px" }}
     >
       <div className="max-w-[1200px] mx-auto">
@@ -154,18 +155,20 @@ const EasierSmarterSection = () => {
                 decision making, & operate with greater control.
               </motion.p>
 
-              <motion.button
-                variants={slideUp}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="group flex items-center gap-3 text-[#171717] text-sm font-semibold px-6 py-3 rounded-full bg-white hover:bg-gray-100 transition-all duration-300 shadow-lg"
-                style={{ fontFamily: "'Urbanist', sans-serif" }}
-              >
-                Learn More
-                <span className="w-6 h-6 rounded-full bg-[#171717]/10 flex items-center justify-center group-hover:bg-[#171717]/20 group-hover:translate-x-1 transition-all duration-300">
-                  <ArrowRight className="w-3 h-3 text-[#171717]" />
-                </span>
-              </motion.button>
+              <Link to="/contact">
+                <motion.button
+                  variants={slideUp}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group flex items-center gap-2.5 text-[#171717] text-sm font-semibold px-5 py-2.5 rounded-full bg-[#E8E8E8] hover:bg-[#DCDCDC] transition-all duration-300"
+                  style={{ fontFamily: "'Urbanist', sans-serif" }}
+                >
+                  Learn More
+                  <span className="w-6 h-6 rounded-full bg-[#171717] flex items-center justify-center group-hover:translate-x-0.5 transition-all duration-300">
+                    <ArrowRight className="w-3 h-3 text-white" />
+                  </span>
+                </motion.button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

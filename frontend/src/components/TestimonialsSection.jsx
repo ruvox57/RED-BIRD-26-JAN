@@ -45,7 +45,7 @@ const TestimonialsSection = () => {
     <section
       id="testimonials"
       ref={sectionRef}
-      className="relative bg-[#0a0a0a] py-24 overflow-hidden"
+      className="relative bg-transparent py-20 lg:py-28 overflow-hidden"
     >
       {/* CSS Animation Keyframes for vertical scroll */}
       <style>{`
@@ -66,10 +66,10 @@ const TestimonialsSection = () => {
           }
         }
         .scroll-column-up {
-          animation: scroll-up 25s linear infinite;
+          animation: scroll-up 30s linear infinite;
         }
         .scroll-column-down {
-          animation: scroll-down 25s linear infinite;
+          animation: scroll-down 30s linear infinite;
         }
         .scroll-column-up:hover,
         .scroll-column-down:hover {
@@ -86,31 +86,46 @@ const TestimonialsSection = () => {
         }
       `}</style>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+      {/* Subtle orange ambient glow */}
+      <div
+        className="absolute inset-0 opacity-30"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 40% at 70% 50%, rgba(255, 120, 50, 0.08) 0%, transparent 60%)",
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10">
           {/* Left Column - Header */}
-          <div className="lg:col-span-4 flex flex-col justify-start">
+          <div className="lg:col-span-4 flex flex-col justify-start lg:sticky lg:top-24">
             <h2
-              className="text-3xl md:text-4xl font-medium text-white mb-6 leading-tight"
+              className="text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight"
               style={{ fontFamily: "'Orbitron', sans-serif" }}
             >
               <span
-                className="font-light"
+                className="font-medium"
                 style={{ fontFamily: "'Orbitron', sans-serif" }}
               >
-                Trusted by Forward
+                Trusted by
               </span>
               <br />
               <span
-                className="font-light"
+                className="font-bold"
                 style={{ fontFamily: "'Orbitron', sans-serif" }}
               >
-                Thinking
-              </span>{" "}
-              Enterprises
+                Forward Thinking
+              </span>
+              <br />
+              <span
+                className="font-medium"
+                style={{ fontFamily: "'Orbitron', sans-serif" }}
+              >
+                Enterprises
+              </span>
             </h2>
             <p
-              className="text-gray-500 text-sm leading-relaxed max-w-xs"
+              className="text-gray-400 text-base leading-relaxed max-w-sm"
               style={{ fontFamily: "'Urbanist', sans-serif" }}
             >
               Real perspectives from enterprise teams building clarity and
@@ -121,15 +136,15 @@ const TestimonialsSection = () => {
           {/* Right Column - 2-Column Testimonial Grid with Vertical Scroll */}
           <div className="lg:col-span-8 relative">
             {/* Gradient overlays for fade effect */}
-            <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
 
-            <div className="h-[520px] overflow-hidden">
-              <div className="grid grid-cols-2 gap-4 h-full">
+            <div className="h-[560px] overflow-hidden">
+              <div className="grid grid-cols-2 gap-5 h-full">
                 {/* Column 1 - Scrolls Up */}
                 <div
                   ref={column1Ref}
-                  className="scroll-column-up flex flex-col gap-4"
+                  className="scroll-column-up flex flex-col gap-5"
                 >
                   {column1Items.map((testimonial, index) => (
                     <TestimonialCard
@@ -145,7 +160,7 @@ const TestimonialsSection = () => {
                 {/* Column 2 - Scrolls Down (offset start) */}
                 <div
                   ref={column2Ref}
-                  className="scroll-column-down flex flex-col gap-4 mt-8"
+                  className="scroll-column-down flex flex-col gap-5 mt-12"
                 >
                   {column2Items.map((testimonial, index) => (
                     <TestimonialCard
@@ -171,51 +186,89 @@ const TestimonialCard = ({ testimonial, variant = "default" }) => {
 
   return (
     <div
-      className={`testimonial-card rounded-xl p-5 border transition-all duration-300 ${
-        isHighlight
-          ? "bg-gradient-to-br from-[#1a1210] to-[#141010] border-orange-500/20 hover:border-orange-500/40"
-          : "bg-[#111111] border-white/10 hover:border-white/20"
-      }`}
+      className="testimonial-card relative rounded-2xl overflow-hidden border border-white/10 hover:border-orange-500/30 transition-all duration-500 group backdrop-blur-md"
+      style={{
+        background:
+          "linear-gradient(180deg, rgba(25, 25, 25, 0.95) 0%, rgba(15, 15, 15, 0.98) 100%)",
+        boxShadow:
+          "0 4px 24px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(255, 255, 255, 0.02) inset",
+      }}
     >
-      {/* Header with user info */}
-      <div className="flex items-center gap-3 mb-3">
-        <div className="w-9 h-9 rounded-full overflow-hidden bg-gradient-to-br from-orange-400 to-orange-600 flex-shrink-0">
-          <img
-            src={testimonial.image}
-            alt={testimonial.name}
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              e.target.style.display = "none";
-              e.target.parentElement.innerHTML = `<span class="flex items-center justify-center w-full h-full text-white text-xs font-medium">${testimonial.name
-                .split(" ")
-                .map((n) => n[0])
-                .join("")}</span>`;
-            }}
-          />
-        </div>
-        <div className="flex-1 min-w-0">
-          <p
-            className="text-white text-sm font-medium truncate"
-            style={{ fontFamily: "'Urbanist', sans-serif" }}
-          >
-            {testimonial.name}
-          </p>
-          <p
-            className="text-gray-500 text-xs truncate"
-            style={{ fontFamily: "'Urbanist', sans-serif" }}
-          >
-            {testimonial.role}
-          </p>
-        </div>
-      </div>
+      {/* Orange gradient at top of card */}
+      <div
+        className="absolute top-0 left-0 right-0 h-1 opacity-80"
+        style={{
+          background:
+            "linear-gradient(90deg, #FF7B00 0%, #FF5500 50%, #FF8800 100%)",
+        }}
+      />
 
-      {/* Content */}
-      <p
-        className="text-gray-400 text-sm leading-relaxed"
-        style={{ fontFamily: "'Urbanist', sans-serif" }}
-      >
-        {testimonial.content}
-      </p>
+      {/* Subtle orange glow at top */}
+      <div
+        className="absolute top-0 left-0 right-0 h-16 pointer-events-none opacity-60"
+        style={{
+          background:
+            "radial-gradient(ellipse 100% 150% at 50% -50%, rgba(255, 120, 50, 0.15) 0%, transparent 70%)",
+        }}
+      />
+
+      {/* Glass effect overlay on hover */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 0%, rgba(255, 120, 50, 0.08) 0%, transparent 60%)",
+        }}
+      />
+
+      {/* Card Content */}
+      <div className="relative p-5">
+        {/* Header with user info */}
+        <div className="flex items-center gap-3 mb-4">
+          <div
+            className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border border-white/10"
+            style={{
+              background: "linear-gradient(135deg, #FF7B00 0%, #FF5500 100%)",
+              boxShadow: "0 2px 8px rgba(255, 85, 0, 0.3)",
+            }}
+          >
+            <img
+              src={testimonial.image}
+              alt={testimonial.name}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = "none";
+                e.target.parentElement.innerHTML = `<span class="flex items-center justify-center w-full h-full text-white text-xs font-medium">${testimonial.name
+                  .split(" ")
+                  .map((n) => n[0])
+                  .join("")}</span>`;
+              }}
+            />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p
+              className="text-white text-sm font-semibold truncate"
+              style={{ fontFamily: "'Urbanist', sans-serif" }}
+            >
+              {testimonial.name}
+            </p>
+            <p
+              className="text-gray-500 text-xs truncate"
+              style={{ fontFamily: "'Urbanist', sans-serif" }}
+            >
+              {testimonial.role}
+            </p>
+          </div>
+        </div>
+
+        {/* Content */}
+        <p
+          className="text-gray-300 text-sm leading-relaxed"
+          style={{ fontFamily: "'Urbanist', sans-serif" }}
+        >
+          "{testimonial.content}"
+        </p>
+      </div>
     </div>
   );
 };

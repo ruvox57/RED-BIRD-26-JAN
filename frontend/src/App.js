@@ -1,20 +1,31 @@
 import React, { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import HeroSection from "./components/HeroSection";
-import GlobalBackground from "./components/GlobalBackground";
-import TrustedSection from "./components/TrustedSection";
-import EasierSmarterSection from "./components/EasierSmarterSection";
-import FoundationSection from "./components/FoundationSection";
-import OperationsSection from "./components/OperationsSection";
-import SystemsSection from "./components/SystemsSection";
-import ProductSlider from "./components/ProductSlider";
-import TestimonialsSection from "./components/TestimonialsSection";
-import FAQSection from "./components/FAQSection";
-import CTASection from "./components/CTASection";
-import Footer from "./components/Footer";
+import HomePage from "./components/HomePage";
+import ContactPage from "./components/ContactPage";
 
-function App() {
+// Scroll to top on route change
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
+// Main layout wrapper with scroll animations
+const AppLayout = ({ children }) => {
+  const location = useLocation();
+  const isContactPage = location.pathname === "/contact";
+
   useEffect(() => {
     // Smooth scroll for anchor links
     const handleAnchorClick = (e) => {
@@ -57,38 +68,23 @@ function App() {
 
   return (
     <div className="bg-[#0a0a0a] min-h-screen overflow-x-hidden">
-      <Navbar />
-      <HeroSection />
-
-      {/* Global Animated Background - spans all sections after hero */}
-      <GlobalBackground
-        lineCount={3}
-        dotCount={150}
-        lineColors={[
-          { start: "rgba(255, 77, 0, 0.08)", end: "rgba(255, 120, 50, 0.02)" },
-          {
-            start: "rgba(255, 100, 50, 0.06)",
-            end: "rgba(255, 150, 80, 0.015)",
-          },
-          { start: "rgba(255, 60, 0, 0.05)", end: "rgba(255, 100, 40, 0.01)" },
-        ]}
-        dotColor="255, 255, 255"
-        dotOpacityRange={[0.015, 0.06]}
-        parallaxIntensity={0.15}
-        motionSpeed={0.5}
-      />
-
-      <TrustedSection />
-      <EasierSmarterSection />
-      <FoundationSection />
-      <OperationsSection />
-      <SystemsSection />
-      <ProductSlider />
-      <TestimonialsSection />
-      <FAQSection />
-      <CTASection />
-      <Footer />
+      {!isContactPage && <Navbar />}
+      {children}
     </div>
+  );
+};
+
+function App() {
+  return (
+    <Router>
+      <ScrollToTop />
+      <AppLayout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </AppLayout>
+    </Router>
   );
 }
 

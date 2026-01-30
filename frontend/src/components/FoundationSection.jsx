@@ -52,7 +52,7 @@ const FoundationSection = () => {
     <section
       id="benefits"
       ref={sectionRef}
-      className="relative bg-[#0a0a0a] py-24"
+      className="relative bg-transparent py-24"
     >
       {/* CSS Animation Keyframes */}
       <style>{`
@@ -117,17 +117,17 @@ const FoundationSection = () => {
         }
       `}</style>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header with Orange Border on Desktop */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <div
-            className="inline-block px-8 py-6 rounded-2xl lg:border-2 lg:border-orange-500/60"
+            className="inline-block px-4 sm:px-8 py-4 sm:py-6 rounded-2xl lg:border-2 lg:border-orange-500/60"
             style={{
               background: "transparent",
             }}
           >
             <h2
-              className="text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight"
               style={{ fontFamily: "'Orbitron', sans-serif" }}
             >
               <span
@@ -143,10 +143,10 @@ const FoundationSection = () => {
           </div>
         </div>
 
-        {/* Asymmetric Grid Layout */}
-        <div className="grid grid-cols-12 gap-4">
+        {/* Asymmetric Grid Layout - Better mobile spacing */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
           {/* Left Column */}
-          <div className="col-span-12 lg:col-span-7 flex flex-col gap-4">
+          <div className="lg:col-span-7 flex flex-col gap-3 sm:gap-4">
             {/* Enterprise Financial Foundation - Top Left */}
             <div className="feature-card animate-on-scroll bg-[#111111] rounded-2xl p-6 border border-white/10 hover:border-orange-500/30 transition-all duration-500">
               <h3
@@ -327,7 +327,7 @@ const FoundationSection = () => {
                 </svg>
               </div>
               {/* Built for Fast Adoption - Overlay text (Desktop Only) */}
-              <div className="hidden lg:block absolute bottom-0 left-0 p-6 bg-gradient-to-t from-[#111111] via-[#111111]/80 to-transparent w-1/2">
+              <div className="hidden lg:block absolute bottom-0 left-0 p-6 bg-gradient-to-t from-[#111111] via-[#111111]/80 to-transparent w-1/2 z-10">
                 <h3
                   className="text-lg font-semibold text-white mb-2"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -343,60 +343,93 @@ const FoundationSection = () => {
                   existing systems.
                 </p>
               </div>
-              {/* Lightning bolt icon with animations (Desktop Only) */}
+              {/* Large 3D Lightning bolt - extends beyond card (Desktop Only) */}
               <div
-                className={`hidden lg:block absolute bottom-6 right-1/4 ${isChartVisible ? "lightning-animated" : ""}`}
+                className={`hidden lg:block absolute -bottom-8 right-8 z-20 ${isChartVisible ? "lightning-animated" : ""}`}
+                style={{ transform: "rotate(-5deg)" }}
               >
-                <svg width="80" height="120" viewBox="0 0 80 120" fill="none">
+                <svg width="180" height="280" viewBox="0 0 180 280" fill="none">
                   <defs>
                     <linearGradient
-                      id="boltGradient"
-                      x1="40"
+                      id="boltGradientLarge"
+                      x1="90"
                       y1="0"
-                      x2="40"
-                      y2="120"
+                      x2="90"
+                      y2="280"
                       gradientUnits="userSpaceOnUse"
                     >
                       <stop stopColor="#FFFFFF" />
+                      <stop offset="0.3" stopColor="#FFF5E6" />
+                      <stop offset="0.6" stopColor="#FFCC80" />
                       <stop offset="1" stopColor="#FF8800" />
                     </linearGradient>
                     <filter
-                      id="boltGlow"
-                      x="-50%"
-                      y="-50%"
-                      width="200%"
-                      height="200%"
+                      id="boltGlowLarge"
+                      x="-100%"
+                      y="-100%"
+                      width="300%"
+                      height="300%"
                     >
-                      <feGaussianBlur stdDeviation="4" result="blur" />
+                      <feGaussianBlur stdDeviation="8" result="blur" />
                       <feMerge>
                         <feMergeNode in="blur" />
                         <feMergeNode in="SourceGraphic" />
                       </feMerge>
                     </filter>
+                    {/* Drop shadow for 3D effect */}
+                    <filter
+                      id="boltShadow"
+                      x="-50%"
+                      y="-50%"
+                      width="200%"
+                      height="200%"
+                    >
+                      <feDropShadow
+                        dx="5"
+                        dy="8"
+                        stdDeviation="6"
+                        floodColor="#000000"
+                        floodOpacity="0.4"
+                      />
+                    </filter>
                   </defs>
+                  {/* Shadow layer */}
                   <path
-                    d="M45 0L0 70H30L25 120L80 45H45L45 0Z"
-                    fill="url(#boltGradient)"
-                    filter="url(#boltGlow)"
+                    d="M100 0L10 160H70L55 280L180 100H100L100 0Z"
+                    fill="rgba(0,0,0,0.3)"
+                    transform="translate(8, 12)"
+                  />
+                  {/* Main bolt */}
+                  <path
+                    d="M100 0L10 160H70L55 280L180 100H100L100 0Z"
+                    fill="url(#boltGradientLarge)"
+                    filter="url(#boltGlowLarge)"
+                  />
+                  {/* Highlight edge for 3D effect */}
+                  <path
+                    d="M100 0L10 160H70"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.6)"
+                    strokeWidth="2"
                   />
                 </svg>
               </div>
             </div>
 
             {/* Built for Fast Adoption - Mobile Only Card */}
-            <div className="lg:hidden feature-card animate-on-scroll bg-[#111111] rounded-2xl p-6 border border-white/10 hover:border-orange-500/30 transition-all duration-500 relative overflow-hidden">
+            <div className="lg:hidden feature-card animate-on-scroll bg-[#111111] rounded-2xl p-4 sm:p-6 border border-white/10 hover:border-orange-500/30 transition-all duration-500 relative overflow-hidden min-h-[120px]">
               {/* Lightning bolt positioned to the right, not overlapping text */}
               <div className="flex items-start gap-4">
-                {/* Text content */}
-                <div className="flex-1 pr-16">
+                {/* Text content - adjusted padding for smaller screens */}
+                <div className="flex-1 pr-12 sm:pr-16">
                   <h3
-                    className="text-lg font-semibold text-white mb-2"
+                    className="text-base sm:text-lg font-semibold text-white mb-2"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
                   >
                     Built for Fast Adoption
                   </h3>
                   <p
-                    className="text-gray-400 text-sm leading-relaxed"
+                    className="text-gray-400 text-xs sm:text-sm leading-relaxed"
                     style={{ fontFamily: "'Urbanist', sans-serif" }}
                   >
                     Equinio platforms are designed to be adopted quickly,
@@ -405,11 +438,17 @@ const FoundationSection = () => {
                   </p>
                 </div>
               </div>
-              {/* Lightning bolt icon - positioned to the right */}
+              {/* Lightning bolt icon - positioned to the right with better mobile sizing */}
               <div
-                className={`absolute right-4 top-1/2 -translate-y-1/2 ${isChartVisible ? "lightning-animated" : ""}`}
+                className={`absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 ${isChartVisible ? "lightning-animated" : ""}`}
               >
-                <svg width="50" height="75" viewBox="0 0 80 120" fill="none">
+                <svg
+                  width="40"
+                  height="60"
+                  viewBox="0 0 80 120"
+                  fill="none"
+                  className="sm:w-[50px] sm:h-[75px]"
+                >
                   <defs>
                     <linearGradient
                       id="boltGradientMobile"
@@ -447,7 +486,7 @@ const FoundationSection = () => {
           </div>
 
           {/* Right Column */}
-          <div className="col-span-12 lg:col-span-5 flex flex-col gap-4">
+          <div className="lg:col-span-5 flex flex-col gap-3 sm:gap-4">
             {/* Compliance First by Design */}
             <div className="feature-card animate-on-scroll bg-[#111111] rounded-2xl p-6 border border-white/10 hover:border-orange-500/30 transition-all duration-500">
               <h3
@@ -480,76 +519,20 @@ const FoundationSection = () => {
                 One Platform
               </h3>
               <p
-                className="text-gray-500 text-sm leading-relaxed mb-6"
+                className="text-gray-500 text-sm leading-relaxed mb-4"
                 style={{ fontFamily: "'Urbanist', sans-serif" }}
               >
                 Equinio builds modular products like Ruvox on a shared platform
                 for consistent, scalable clarity.
               </p>
 
-              {/* Orbital/Circular Design */}
-              <div className="relative h-48 flex items-center justify-center">
-                {/* Outer ring */}
-                <div className="absolute w-44 h-44 rounded-full border border-gray-700" />
-                {/* Middle ring */}
-                <div className="absolute w-32 h-32 rounded-full border border-gray-600" />
-                {/* Inner ring with gradient */}
-                <div className="absolute w-20 h-20 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
-                  <div className="w-3 h-3 rounded-full bg-white" />
-                </div>
-                {/* Orbiting icons */}
-                <div
-                  className="absolute w-8 h-8 rounded-full bg-[#1a1a1a] border border-gray-600 flex items-center justify-center"
-                  style={{ top: "10%", left: "20%" }}
-                >
-                  <svg
-                    className="w-4 h-4 text-gray-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z" />
-                  </svg>
-                </div>
-                <div
-                  className="absolute w-8 h-8 rounded-full bg-[#1a1a1a] border border-gray-600 flex items-center justify-center"
-                  style={{ top: "10%", right: "20%" }}
-                >
-                  <svg
-                    className="w-4 h-4 text-gray-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" />
-                  </svg>
-                </div>
-                <div
-                  className="absolute w-8 h-8 rounded-full bg-[#1a1a1a] border border-gray-600 flex items-center justify-center"
-                  style={{ bottom: "15%", left: "15%" }}
-                >
-                  <svg
-                    className="w-4 h-4 text-gray-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <div
-                  className="absolute w-8 h-8 rounded-full bg-[#1a1a1a] border border-gray-600 flex items-center justify-center"
-                  style={{ bottom: "15%", right: "15%" }}
-                >
-                  <svg
-                    className="w-4 h-4 text-gray-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z" />
-                  </svg>
-                </div>
+              {/* Orbital Design - Using Image */}
+              <div className="relative flex items-center justify-center w-full">
+                <img
+                  src="/one-clear-foundation.jpg"
+                  alt="Products Built on One Platform - Orbital Design"
+                  className="w-full h-auto object-contain scale-110"
+                />
               </div>
             </div>
           </div>

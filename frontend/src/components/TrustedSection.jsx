@@ -28,7 +28,7 @@ const TrustedSection = () => {
   }, []);
 
   return (
-    <section className="relative bg-[#171717] py-12 overflow-hidden">
+    <section className="relative bg-transparent py-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Label */}
         <div className="text-center mb-10">
@@ -45,8 +45,8 @@ const TrustedSection = () => {
       {/* Infinite Scroll Logos */}
       <div className="relative">
         {/* Gradient Masks */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#171717] to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#171717] to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10" />
 
         <div ref={scrollRef} className="flex overflow-hidden">
           <div className="scroll-content flex items-center gap-12 animate-scroll">

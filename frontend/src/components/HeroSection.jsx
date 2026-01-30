@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import FloatingParticles from "./FloatingParticles";
@@ -235,46 +236,49 @@ const HeroSection = () => {
               className="flex flex-row items-center gap-3 mt-2 hero-buttons"
             >
               {/* Get Started Button */}
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="group flex items-center gap-1.5 px-4 py-2 rounded-full transition-all duration-300"
-                style={{
-                  backgroundColor: "#ffffff",
-                  fontFamily: "'Urbanist', sans-serif",
-                  fontSize: "12px",
-                  fontWeight: 600,
-                  color: "#000000",
-                }}
-              >
-                Get Started
-                <span
-                  className="flex items-center justify-center w-5 h-5 rounded-full transition-transform duration-300 group-hover:translate-x-0.5"
-                  style={{ backgroundColor: "#000000" }}
+              <Link to="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group flex items-center gap-1.5 px-4 py-2 rounded-full transition-all duration-300"
+                  style={{
+                    backgroundColor: "#ffffff",
+                    fontFamily: "'Urbanist', sans-serif",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    color: "#000000",
+                  }}
                 >
-                  <ArrowRight className="w-2.5 h-2.5 text-white" />
-                </span>
-              </motion.button>
+                  Get Started
+                  <span
+                    className="flex items-center justify-center w-5 h-5 rounded-full transition-transform duration-300 group-hover:translate-x-0.5"
+                    style={{ backgroundColor: "#000000" }}
+                  >
+                    <ArrowRight className="w-2.5 h-2.5 text-white" />
+                  </span>
+                </motion.button>
+              </Link>
 
               {/* Learn More Button */}
-              <motion.button
-                whileHover={{
-                  color: "#ff4d00",
-                  borderColor: "rgba(255, 77, 0, 0.5)",
-                }}
-                whileTap={{ scale: 0.98 }}
-                className="px-4 py-2 rounded-full transition-all duration-300"
-                style={{
-                  backgroundColor: "transparent",
-                  border: "1px solid rgba(255, 255, 255, 0.2)",
-                  fontFamily: "'Urbanist', sans-serif",
-                  fontSize: "12px",
-                  fontWeight: 500,
-                  color: "#ffffff",
-                }}
-              >
-                Learn More
-              </motion.button>
+              <Link to="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300"
+                  style={{
+                    backgroundColor: "#E8E8E8",
+                    fontFamily: "'Urbanist', sans-serif",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    color: "#171717",
+                  }}
+                >
+                  Learn More
+                  <span className="w-5 h-5 rounded-full bg-[#171717] flex items-center justify-center group-hover:translate-x-0.5 transition-all duration-300">
+                    <ArrowRight className="w-2.5 h-2.5 text-white" />
+                  </span>
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
 
