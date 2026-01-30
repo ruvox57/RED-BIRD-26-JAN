@@ -115,19 +115,19 @@ const ContactPage = () => {
               <ContactItem
                 icon={<Mail className="w-5 h-5" />}
                 label="Email"
-                value="hello@equinio.com"
-                href="mailto:hello@equinio.com"
+                value="Getintouch@equiniotechnologies.com"
+                href="mailto:Getintouch@equiniotechnologies.com"
               />
               <ContactItem
                 icon={<Phone className="w-5 h-5" />}
                 label="Phone"
-                value="+1 (555) 123-4567"
+                value="+91 9840012142"
                 href="tel:+15551234567"
               />
               <ContactItem
                 icon={<MapPin className="w-5 h-5" />}
                 label="Location"
-                value="San Francisco, CA"
+                value="Chennai , India"
               />
             </motion.div>
 

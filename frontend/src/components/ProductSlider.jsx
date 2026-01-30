@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { products } from "../data/mockData";
+import { useNavigate } from "react-router-dom";
 
 const ProductSlider = () => {
   const sectionRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const navigate = useNavigate();
 
   // Color schemes for each product
   const colorSchemes = {
@@ -256,17 +258,26 @@ const ProductSlider = () => {
                 )}
               </h3>
 
-              <a
-                href={currentProduct.url || "#"}
-                target={currentProduct.comingSoon ? "_self" : "_blank"}
-                rel="noopener noreferrer"
-                className={`group inline-flex items-center gap-3 ${colors.button} text-white text-sm font-semibold px-6 py-3 rounded-full transition-all duration-300 mb-8 hover:scale-105`}
-              >
-                {currentProduct.comingSoon
-                  ? "Notify Me"
-                  : `Explore ${currentProduct.name}`}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </a>
+              {currentProduct.comingSoon ? (
+                <button
+                  type="button"
+                  onClick={() => navigate("/finzura-notify")}
+                  className={`group inline-flex items-center gap-3 ${colors.button} text-white text-sm font-semibold px-6 py-3 rounded-full transition-all duration-300 mb-8 hover:scale-105`}
+                >
+                  Notify Me
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                </button>
+              ) : (
+                <a
+                  href={currentProduct.url || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group inline-flex items-center gap-3 ${colors.button} text-white text-sm font-semibold px-6 py-3 rounded-full transition-all duration-300 mb-8 hover:scale-105`}
+                >
+                  {`Explore ${currentProduct.name}`}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                </a>
+              )}
 
               <p
                 className="text-gray-400 text-base leading-relaxed mb-8"

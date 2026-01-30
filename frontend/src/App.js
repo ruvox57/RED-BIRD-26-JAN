@@ -9,6 +9,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import HomePage from "./components/HomePage";
 import ContactPage from "./components/ContactPage";
+import FinzuraNotify from "./components/FinzuraNotify";
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -82,6 +83,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/finzura-notify" element={<FinzuraNotify />} />
         </Routes>
       </AppLayout>
     </Router>
