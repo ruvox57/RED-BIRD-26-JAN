@@ -141,36 +141,36 @@ export const products = [
     color: "blue",
     url: "https://ruvox.io",
   },
-  {
-    id: 2,
-    name: "Finara",
-    tagline: "Intelligent compliance automation.",
-    description:
-      "Finara automates compliance workflows with AI-driven insights, reducing manual effort while ensuring regulatory adherence.",
-    image:
-      "https://framerusercontent.com/images/ryEsKNfCq5w8FxZj0fL603UJjA.png",
-    founder: "Sarah Chen",
-    founderRole: "Head of Product",
-    founderImage:
-      "https://framerusercontent.com/images/QrADGQTmq3J8LlfYkqvDVxCP3wc.png",
-    color: "purple",
-    url: "#",
-  },
-  {
-    id: 3,
-    name: "Quantix",
-    tagline: "Real-time financial analytics.",
-    description:
-      "Quantix delivers real-time analytics and insights across your financial operations for data-driven decision making.",
-    image:
-      "https://framerusercontent.com/images/ryEsKNfCq5w8FxZj0fL603UJjA.png",
-    founder: "Michael Torres",
-    founderRole: "CTO",
-    founderImage:
-      "https://framerusercontent.com/images/5SvmsGUbwyGolmfue9bSL7VCIc.png",
-    color: "teal",
-    url: "#",
-  },
+  // {
+  //   id: 2,
+  //   name: "Finara",
+  //   tagline: "Intelligent compliance automation.",
+  //   description:
+  //     "Finara automates compliance workflows with AI-driven insights, reducing manual effort while ensuring regulatory adherence.",
+  //   image:
+  //     "https://framerusercontent.com/images/ryEsKNfCq5w8FxZj0fL603UJjA.png",
+  //   founder: "Sarah Chen",
+  //   founderRole: "Head of Product",
+  //   founderImage:
+  //     "https://framerusercontent.com/images/QrADGQTmq3J8LlfYkqvDVxCP3wc.png",
+  //   color: "purple",
+  //   url: "#",
+  // },
+  // {
+  //   id: 3,
+  //   name: "Quantix",
+  //   tagline: "Real-time financial analytics.",
+  //   description:
+  //     "Quantix delivers real-time analytics and insights across your financial operations for data-driven decision making.",
+  //   image:
+  //     "https://framerusercontent.com/images/ryEsKNfCq5w8FxZj0fL603UJjA.png",
+  //   founder: "Michael Torres",
+  //   founderRole: "CTO",
+  //   founderImage:
+  //     "https://framerusercontent.com/images/5SvmsGUbwyGolmfue9bSL7VCIc.png",
+  //   color: "teal",
+  //   url: "#",
+  // },
   {
     id: 4,
     name: "Finzura",
