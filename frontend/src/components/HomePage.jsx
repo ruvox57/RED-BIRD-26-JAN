@@ -7,6 +7,7 @@ import FoundationSection from "./FoundationSection";
 import OperationsSection from "./OperationsSection";
 import SystemsSection from "./SystemsSection";
 import ProductSlider from "./ProductSlider";
+import ServicesSection from "./ServicesSection";
 import TestimonialsSection from "./TestimonialsSection";
 import FAQSection from "./FAQSection";
 import CTASection from "./CTASection";
@@ -45,6 +46,7 @@ const HomePage = () => {
       <OperationsSection />
       <SystemsSection />
       <ProductSlider />
+      <ServicesSection />
       <TestimonialsSection />
       <FAQSection />
       <CTASection />
@@ -54,4 +56,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
