@@ -1,65 +1,93 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Shield,
-  BarChart3,
-  Zap,
+  Building2,
+  Target,
   Users,
-  Lock,
-  TrendingUp,
-  Database,
-  Globe,
+  Settings,
+  Clock,
+  CheckCircle,
   ArrowRight,
 } from "lucide-react";
 
 const services = [
   {
-    icon: Shield,
-    title: "Compliance First",
+    icon: Building2,
+    title: "Banking & IT Expertise",
     description:
-      "Built-in regulatory compliance for financial operations with automated audit trails and reporting.",
+      "Deep expertise in niche and complex technology environments, particularly within the banking and financial services sector. We source professionals across the complete Temenos Suite, core banking platforms, digital transformation initiatives, and enterprise IT systems.",
     color: "#ff5500",
     number: "01",
-  },
-  {
-    icon: BarChart3,
-    title: "Real-time Analytics",
-    description:
-      "Live dashboards and insights for informed decisions with predictive modeling.",
-    color: "#00d4ff",
-    number: "02",
-  },
-  {
-    icon: Zap,
-    title: "Automation",
-    description:
-      "Streamline workflows with intelligent automation and AI-powered processes.",
-    color: "#ffd700",
-    number: "03",
+    features: [
+      "Temenos Suite Specialists",
+      "Core Banking Experts",
+      "Digital Transformation",
+    ],
   },
   {
     icon: Users,
-    title: "Team Collaboration",
+    title: "Wide-Ranging Skill Coverage",
     description:
-      "Seamless collaboration across departments with real-time sync and permissions.",
+      "Whether your requirement is for a single specialist or an entire project team, we support a broad spectrum of roles including core banking consultants, payments experts with SWIFT MT/MX knowledge, mobile developers, middleware professionals, QA, DevOps, and cloud specialists.",
+    color: "#00d4ff",
+    number: "02",
+    features: [
+      "Payments & SWIFT Experts",
+      "Mobile & Integration Devs",
+      "QA, DevOps & Cloud",
+    ],
+  },
+  {
+    icon: Target,
+    title: "Precision Matching Process",
+    description:
+      "We don't believe in sending volumes of profiles—we believe in sending the right profiles. Our selection includes detailed requirement analysis, technical screening by subject experts, culture fit assessment, and verification of project experience and references.",
+    color: "#ffd700",
+    number: "03",
+    features: [
+      "Technical Screening",
+      "Culture Fit Assessment",
+      "Reference Verification",
+    ],
+  },
+  {
+    icon: Settings,
+    title: "Flexible Engagement Models",
+    description:
+      "We support multiple staffing models to suit your business needs: contract and contract-to-hire staffing, permanent recruitment, project-based team ramp-ups, and short-term specialist engagements. Scale resources up or down without administrative burden.",
     color: "#a855f7",
     number: "04",
+    features: [
+      "Contract & Permanent",
+      "Project-Based Teams",
+      "Flexible Scaling",
+    ],
   },
   {
-    icon: Lock,
-    title: "Enterprise Security",
+    icon: Clock,
+    title: "Reduced Time-to-Hire",
     description:
-      "Bank-grade security for your sensitive data with end-to-end encryption.",
+      "Stop losing time and resources to lengthy hiring cycles. Our streamlined process and pre-vetted talent pool ensures you get access to niche and senior professionals quickly, with a quality-assured candidate pipeline and transparent communication.",
     color: "#22c55e",
     number: "05",
+    features: [
+      "Pre-Vetted Talent Pool",
+      "Quality-Assured Pipeline",
+      "Fast Turnaround",
+    ],
   },
   {
-    icon: TrendingUp,
-    title: "Growth Insights",
+    icon: CheckCircle,
+    title: "The Talentra Advantage",
     description:
-      "Predictive analytics to drive business growth and identify opportunities.",
+      "We act as an extension of your recruitment team, focused on delivering outcomes—not just resumes. Our long-term partnership approach ensures access to niche talent pools with transparent communication throughout the hiring process.",
     color: "#f43f5e",
     number: "06",
+    features: [
+      "Partnership Approach",
+      "Outcome-Focused",
+      "Transparent Process",
+    ],
   },
 ];
 
@@ -93,15 +121,16 @@ const ServicesSection = () => {
             className="text-3xl md:text-4xl lg:text-5xl text-white mb-4"
             style={{ fontFamily: "'Orbitron', sans-serif" }}
           >
-            <span className="font-bold">Our</span>{" "}
-            <span className="font-medium">Services</span>
+            <span className="font-bold">Why Partner</span>{" "}
+            <span className="font-medium">with Talentra?</span>
           </h2>
           <p
-            className="text-gray-400 text-base lg:text-lg max-w-2xl mx-auto"
+            className="text-gray-400 text-base lg:text-lg max-w-3xl mx-auto"
             style={{ fontFamily: "'Urbanist', sans-serif" }}
           >
-            Comprehensive solutions designed to transform your financial
-            operations
+            Strategic IT & Banking Staffing Solutions. We connect you with
+            highly skilled, pre-vetted experts who fit your technical needs,
+            culture, and project timelines.
           </p>
         </motion.div>
 
@@ -267,24 +296,22 @@ const ServicesSection = () => {
 
                     {/* Features List */}
                     <div className="space-y-3 mb-8">
-                      {["Enterprise Ready", "24/7 Support", "API Access"].map(
-                        (feature, i) => (
-                          <div key={i} className="flex items-center gap-3">
-                            <div
-                              className="w-2 h-2 rounded-full"
-                              style={{
-                                background: services[activeIndex].color,
-                              }}
-                            />
-                            <span
-                              className="text-gray-300 text-sm"
-                              style={{ fontFamily: "'Urbanist', sans-serif" }}
-                            >
-                              {feature}
-                            </span>
-                          </div>
-                        ),
-                      )}
+                      {services[activeIndex].features.map((feature, i) => (
+                        <div key={i} className="flex items-center gap-3">
+                          <div
+                            className="w-2 h-2 rounded-full"
+                            style={{
+                              background: services[activeIndex].color,
+                            }}
+                          />
+                          <span
+                            className="text-gray-300 text-sm"
+                            style={{ fontFamily: "'Urbanist', sans-serif" }}
+                          >
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
                     </div>
 
                     {/* CTA Button */}
@@ -295,7 +322,7 @@ const ServicesSection = () => {
                         boxShadow: `0 0 30px ${services[activeIndex].color}40`,
                       }}
                     >
-                      Learn More
+                      Get Started
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
