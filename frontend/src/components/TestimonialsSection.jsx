@@ -226,24 +226,33 @@ const TestimonialCard = ({ testimonial, variant = "default" }) => {
         {/* Header with user info */}
         <div className="flex items-center gap-3 mb-4">
           <div
-            className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border border-white/10"
+            className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border border-white/10 flex items-center justify-center"
             style={{
               background: "linear-gradient(135deg, #FF7B00 0%, #FF5500 100%)",
               boxShadow: "0 2px 8px rgba(255, 85, 0, 0.3)",
             }}
           >
-            <img
-              src={testimonial.image}
-              alt={testimonial.name}
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                e.target.style.display = "none";
-                e.target.parentElement.innerHTML = `<span class="flex items-center justify-center w-full h-full text-white text-xs font-medium">${testimonial.name
+            {testimonial.image ? (
+              <img
+                src={testimonial.image}
+                alt={testimonial.name}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.style.display = "none";
+                  e.target.parentElement.innerHTML = `<span class="flex items-center justify-center w-full h-full text-white text-xs font-medium">${testimonial.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}</span>`;
+                }}
+              />
+            ) : (
+              <span className="text-white text-xs font-medium">
+                {testimonial.name
                   .split(" ")
                   .map((n) => n[0])
-                  .join("")}</span>`;
-              }}
-            />
+                  .join("")}
+              </span>
+            )}
           </div>
           <div className="flex-1 min-w-0">
             <p

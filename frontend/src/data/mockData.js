@@ -194,8 +194,7 @@ export const testimonials = [
     role: "COO, NACtech",
     content:
       "RUVox transformed our invoicing with visibility, control, and automation, boosting cash inflows from ~20% to ~70%. Exceptional tool and implementation.",
-    image:
-      "https://framerusercontent.com/images/QrADGQTmq3J8LlfYkqvDVxCP3wc.png",
+    image: null,
   },
   {
     id: 2,
@@ -203,8 +202,7 @@ export const testimonials = [
     role: "CEO, Cloudkey",
     content:
       "RUVox drove organisation-wide timesheet compliance, bringing consistency, accountability, and discipline with structured reminders and escalations. A highly effective solution, successfully implemented.",
-    image:
-      "https://framerusercontent.com/images/5SvmsGUbwyGolmfue9bSL7VCIc.png",
+    image: null,
   },
   {
     id: 3,
@@ -212,8 +210,7 @@ export const testimonials = [
     role: "Project Manager, Citibanamex",
     content:
       "RUVox gave us real-time project visibility and financial clarity, improving invoicing and payments while tracking milestones. Simple, powerful, and effective.",
-    image:
-      "https://framerusercontent.com/images/ldPd9QjTVeqbcMC9KYbofTGZCA.png",
+    image: null,
   },
   {
     id: 4,
@@ -221,8 +218,7 @@ export const testimonials = [
     role: "CFO, I-vertys",
     content:
       "RUVox delivered clear financial performance insights, tracking revenue, costs, and margins effortlessly. Real-time visibility improved planning and profitability. Powerful, intuitive, indispensable.",
-    image:
-      "https://framerusercontent.com/images/9sOLRhns5l6TC2uP5BRhF14RIUk.png",
+    image: null,
   },
   {
     id: 5,
@@ -230,8 +226,7 @@ export const testimonials = [
     role: "COO, NACtech",
     content:
       "RUVox transformed our invoicing with visibility, control, and automation, boosting cash inflows from ~20% to ~70%. Exceptional tool and implementation.",
-    image:
-      "https://framerusercontent.com/images/QrADGQTmq3J8LlfYkqvDVxCP3wc.png",
+    image: null,
   },
   {
     id: 6,
@@ -239,8 +234,7 @@ export const testimonials = [
     role: "CEO, Cloudkey",
     content:
       "RUVox drove organisation-wide timesheet compliance, bringing consistency, accountability, and discipline with structured reminders and escalations. A highly effective solution, successfully implemented.",
-    image:
-      "https://framerusercontent.com/images/5SvmsGUbwyGolmfue9bSL7VCIc.png",
+    image: null,
   },
   {
     id: 7,
@@ -248,8 +242,7 @@ export const testimonials = [
     role: "Project Manager, Citibanamex",
     content:
       "RUVox gave us real-time project visibility and financial clarity, improving invoicing and payments while tracking milestones. Simple, powerful, and effective.",
-    image:
-      "https://framerusercontent.com/images/ldPd9QjTVeqbcMC9KYbofTGZCA.png",
+    image: null,
   },
   {
     id: 8,
@@ -257,8 +250,7 @@ export const testimonials = [
     role: "CFO, I-vertys",
     content:
       "RUVox delivered clear financial performance insights, tracking revenue, costs, and margins effortlessly. Real-time visibility improved planning and profitability. Powerful, intuitive, indispensable.",
-    image:
-      "https://framerusercontent.com/images/dPCyMK1mMc6lEw4PNgOWalWDnWg.png",
+    image: null,
   },
 ];
 
