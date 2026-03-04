@@ -4,6 +4,7 @@ export const navLinks = [
   { name: "Home", href: "#home" },
   { name: "Feature", href: "#features" },
   { name: "Benefit", href: "#benefits" },
+  { name: "Services", href: "#services" },
   { name: "Products", href: "#products" },
   { name: "Testimonials", href: "#testimonials" },
   { name: "FAQ", href: "#faq" },
@@ -136,8 +137,7 @@ export const products = [
       "https://framerusercontent.com/images/ryEsKNfCq5w8FxZj0fL603UJjA.png",
     founder: "Vignesh Murali",
     founderRole: "Founder & CEO",
-    founderImage:
-      "https://framerusercontent.com/images/QHgyy4yoVoodKpdRfHd00Z0czE.png",
+    founderImage: null,
     color: "blue",
     url: "https://ruvox.io",
   },
@@ -190,73 +190,73 @@ export const products = [
 export const testimonials = [
   {
     id: 1,
-    name: "Olivia Bennett",
-    role: "Product Manager",
+    name: "Gokul",
+    role: "COO, NACtech",
     content:
-      "The platform gave me clarity and confidence in managing my personal investments, even with limited time.",
+      "RUVox transformed our invoicing with visibility, control, and automation, boosting cash inflows from ~20% to ~70%. Exceptional tool and implementation.",
     image:
       "https://framerusercontent.com/images/QrADGQTmq3J8LlfYkqvDVxCP3wc.png",
   },
   {
     id: 2,
-    name: "Marcus Reed",
-    role: "Crypto Analyst",
+    name: "Chembukutti",
+    role: "CEO, Cloudkey",
     content:
-      "The AI insights helped me balance risk across both traditional and crypto assets seamlessly.",
+      "RUVox drove organisation-wide timesheet compliance, bringing consistency, accountability, and discipline with structured reminders and escalations. A highly effective solution, successfully implemented.",
     image:
       "https://framerusercontent.com/images/5SvmsGUbwyGolmfue9bSL7VCIc.png",
   },
   {
     id: 3,
-    name: "Ethan Carter",
-    role: "Wealth Advisor",
+    name: "Gerardo",
+    role: "Project Manager, Citibanamex",
     content:
-      "I use it daily to fine-tune portfolio strategies—it saves hours and adds accuracy.",
+      "RUVox gave us real-time project visibility and financial clarity, improving invoicing and payments while tracking milestones. Simple, powerful, and effective.",
     image:
       "https://framerusercontent.com/images/ldPd9QjTVeqbcMC9KYbofTGZCA.png",
   },
   {
     id: 4,
-    name: "Isabelle Turner",
-    role: "Operations Director",
+    name: "Vishal Solanki",
+    role: "CFO, I-vertys",
     content:
-      "I appreciate the transparency—real-time tracking makes our internal reporting much easier.",
+      "RUVox delivered clear financial performance insights, tracking revenue, costs, and margins effortlessly. Real-time visibility improved planning and profitability. Powerful, intuitive, indispensable.",
     image:
       "https://framerusercontent.com/images/9sOLRhns5l6TC2uP5BRhF14RIUk.png",
   },
   {
     id: 5,
-    name: "Sofia Miller",
-    role: "Freelance Designer",
+    name: "Gokul",
+    role: "COO, NACtech",
     content:
-      "As someone new to finance, I felt empowered by how intuitive and intelligent this tool is.",
+      "RUVox transformed our invoicing with visibility, control, and automation, boosting cash inflows from ~20% to ~70%. Exceptional tool and implementation.",
     image:
-      "https://framerusercontent.com/images/lPKVWJhAaa7KtMRoqStcJ1Z9x54.png",
+      "https://framerusercontent.com/images/QrADGQTmq3J8LlfYkqvDVxCP3wc.png",
   },
   {
     id: 6,
-    name: "Noah Hayes",
-    role: "AI Engineer",
+    name: "Chembukutti",
+    role: "CEO, Cloudkey",
     content:
-      "I value the smart algorithms behind the product—finally, tech that understands the market like a human.",
+      "RUVox drove organisation-wide timesheet compliance, bringing consistency, accountability, and discipline with structured reminders and escalations. A highly effective solution, successfully implemented.",
     image:
-      "https://framerusercontent.com/images/2T0ZuDGJ91K2VQX5Hu2Mk3YE2no.png",
+      "https://framerusercontent.com/images/5SvmsGUbwyGolmfue9bSL7VCIc.png",
   },
   {
     id: 7,
-    name: "Daniel Brooks",
-    role: "Private Investor",
+    name: "Gerardo",
+    role: "Project Manager, Citibanamex",
     content:
-      "Accurate, automated, and surprisingly intuitive. This is what modern wealth management should feel like.",
+      "RUVox gave us real-time project visibility and financial clarity, improving invoicing and payments while tracking milestones. Simple, powerful, and effective.",
     image:
-      "https://framerusercontent.com/images/9Y9Et3Se2h9t6HeQ1Nrki7Zndjg.png",
+      "https://framerusercontent.com/images/ldPd9QjTVeqbcMC9KYbofTGZCA.png",
   },
   {
     id: 8,
-    name: "Jenna Wallace",
-    role: "Startup Founder",
+    name: "Vishal Solanki",
+    role: "CFO, I-vertys",
     content:
-      "Our team uses the enterprise dashboard to monitor treasury activity—it's become essential.",
+      "RUVox delivered clear financial performance insights, tracking revenue, costs, and margins effortlessly. Real-time visibility improved planning and profitability. Powerful, intuitive, indispensable.",
     image:
       "https://framerusercontent.com/images/dPCyMK1mMc6lEw4PNgOWalWDnWg.png",
   },

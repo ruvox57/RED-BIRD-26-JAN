@@ -96,7 +96,10 @@ const ServicesSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="relative bg-transparent py-20 lg:py-32 overflow-hidden">
+    <section
+      id="services"
+      className="relative bg-transparent py-20 lg:py-32 overflow-hidden"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div
