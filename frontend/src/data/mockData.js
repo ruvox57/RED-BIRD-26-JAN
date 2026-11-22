@@ -139,7 +139,7 @@ export const products = [
     founderRole: "Founder & CEO",
     founderImage: null,
     color: "blue",
-    url: "https://ruvox.io",
+    url: "https://ru-vox.com/",
   },
   // {
   //   id: 2,
